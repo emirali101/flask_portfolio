@@ -1,0 +1,33 @@
+{% include "header.html" %}
+
+<div class="content">
+    <div class="text">
+     {% if success %}
+      <p>Thank you for your message. We'll get back to you shortly.</p>
+      {% else %}
+        {% for message in form.name.errors %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.email.errors %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.subject.errors %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% for message in form.message.errors %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        <form action="{{ url_for('contact') }}" method=post>
+            {{ form.hidden_tag() }}
+            {{ form.name }}
+            {{ form.email }}
+            {{ form.subject }}
+            {{ form.message }}
+            {{ form.submit }}
+        </form>
+        {% endif %}
+    </div>
+
+</div>
+
+{% include "footer.html" %}

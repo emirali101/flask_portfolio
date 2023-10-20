@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Emir's portfolio</title>
+      <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+      <nav>
+      <div class="header">
+         <div class="logo">
+            Emir A.
+         </div>
+         <div class="navdiv">   
+
+         <ul>
+            <li><a class="button" href="https://drive.google.com/file/d/1laN0XW0AL-BSX3Np1Bjnp2knkN_6LvWv/view?usp=drive_link">Resume</a></li>
+            <li><a class="{% if active=='contact' %}active{%endif %}" href="{{url_for('contact')}}">Contact</a></li>
+            <li><a class="{% if active=='projects' %}active{%endif %}" href="{{url_for('projects')}}">Projects</a></li>
+            <li><a class="{% if active=='home' %}active{%endif %}" href="{{url_for('home')}}">Home</a></li>
+         </ul>
+         </div>
+      </div>
+      </nav>
+ 
